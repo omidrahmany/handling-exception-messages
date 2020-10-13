@@ -15,7 +15,7 @@ public class ExceptionBase extends RuntimeException {
     private ExceptionCode exceptionCode;
 
     public ExceptionBase(String message) {
-        super(message);
+//        super(message);  // wrong & redundant code!
         this.message = message;
     }
 
