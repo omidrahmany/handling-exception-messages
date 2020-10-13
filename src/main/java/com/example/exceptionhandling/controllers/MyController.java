@@ -1,10 +1,9 @@
 package com.example.exceptionhandling.controllers;
 
+import com.example.exceptionhandling.entity.Account;
 import com.example.exceptionhandling.exceptions.BadNationalityException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.exceptionhandling.exceptions.EntityNotFoundException;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/test")
@@ -19,4 +18,16 @@ public class MyController {
         }
         return "this is a test";
     }
+
+    @PostMapping("/save")
+    public String saveAccount(@RequestBody Account account){
+        if (account.getNationalCode()==0) {
+            throw new BadNationalityException("error.badNationalCode");
+        }else if(account.getUsername()==null){
+            throw new EntityNotFoundException("error.entityNotFound");
+        }
+        return "حساب کاربری با موفقیت ذخیره شد";
+    }
+
+
 }

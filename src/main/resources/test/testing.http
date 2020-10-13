@@ -1,1 +1,11 @@
 GET http://localhost:8080/test/0
+
+### call save-account service
+POST http://localhost:8080/test/save
+Content-Type: application/json
+
+{
+  "username": "omid",
+  "email": "omid@test.com",
+  "nationalCode": 0
+}

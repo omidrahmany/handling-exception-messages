@@ -5,6 +5,6 @@ public class BadNationalityException extends ExceptionBase {
     public BadNationalityException(String message , Object... args) {
         super(message);
         setArguments(args);
-        setExceptionCode(ExceptionCode.NOT_FOUND);
+        setExceptionCode(ExceptionCode.BAD_NATIONALITY);
     }
 }
